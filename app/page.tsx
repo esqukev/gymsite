@@ -348,24 +348,94 @@ const Styles = () => (
 
     @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
 
+    .n-toggle { display:none; width:44px; height:44px; align-items:center; justify-content:center; background:transparent; border:1px solid rgba(255,255,255,.2); color:var(--w); cursor:pointer; flex-direction:column; gap:5px; padding:0; transition:border-color .2s,background .2s; }
+    .n-toggle span { display:block; width:18px; height:2px; background:currentColor; transition:transform .25s,opacity .25s; }
+    .n-toggle.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .n-toggle.open span:nth-child(2) { opacity:0; }
+    .n-toggle.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .n-mob { display:none; position:fixed; top:64px; left:0; right:0; bottom:0; background:var(--bk); z-index:799; padding:24px 20px; overflow-y:auto; opacity:0; visibility:hidden; transition:opacity .3s,visibility .3s; }
+    .n-mob.open { opacity:1; visibility:visible; }
+    .n-mob-links { list-style:none; display:flex; flex-direction:column; gap:4px; }
+    .n-mob-links a { font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:1.1rem; letter-spacing:.12em; text-transform:uppercase; color:var(--w); text-decoration:none; display:block; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.06); transition:color .2s; }
+    .n-mob-links a:hover { color:var(--g); }
+    .n-mob .n-btn { margin-top:24px; width:100%; text-align:center; }
+
     @media(max-width:960px){
-      nav { padding:0 20px; }
+      nav { padding:0 16px; }
       .n-links { display:none; }
-      .sec { padding:72px 20px; }
-      .hero { padding:0 20px 60px; }
+      .n-toggle { display:flex; }
+      .n-mob { display:block; }
+      nav .n-btn { display:none; }
+      .sec { padding:56px 16px; }
+      .sec-hdr { flex-direction:column; align-items:flex-start; gap:20px; margin-bottom:36px; }
+      .sec-hdr .btn-solid,.sec-hdr .btn-line { min-height:44px; }
+      .hero { padding:0 16px 48px; min-height:90vh; }
+      .hero-title { font-size:clamp(3rem,12vw,5.5rem); }
+      .hero-eyebrow { margin-bottom:16px; flex-wrap:wrap; }
+      .hero-eyebrow .tag-lbl { font-size:.58rem; }
+      .hero-bottom { flex-direction:column; align-items:flex-start; margin-top:32px; gap:20px; }
+      .hero-desc { max-width:100%; font-size:.9rem; }
+      .hero-ctas { width:100%; flex-direction:column; }
+      .hero-ctas .btn-solid,.hero-ctas .btn-line { width:100%; text-align:center; min-height:48px; display:flex; align-items:center; justify-content:center; }
+      .hero-scr { bottom:16px; }
       .about-grid { grid-template-columns:1fr; }
-      .ab-vis { min-height:300px; }
-      .ab-copy { padding:44px 24px; }
-      .cl-grid { grid-template-columns:1fr 1fr; }
-      .tr-grid { grid-template-columns:1fr 1fr; }
+      .ab-vis { min-height:280px; }
+      .ab-big { font-size:14rem; }
+      .ab-badge { bottom:20px; left:20px; padding:8px 16px; }
+      .ab-badge span { font-size:1.5rem; }
+      .ab-yr { font-size:.55rem; }
+      .ab-copy { padding:40px 20px; }
+      .ab-h2 { font-size:clamp(2rem,8vw,3.5rem); margin-bottom:16px; }
+      .ab-p { font-size:.9rem; margin-bottom:28px; }
+      .ab-val { gap:12px; padding:14px 0; }
+      .ab-stats { flex-wrap:wrap; gap:24px; padding-top:28px; }
+      .ab-sn { font-size:2.4rem; }
+      .cl-grid { grid-template-columns:1fr 1fr; gap:2px; }
+      .cl-body { padding:16px 14px; }
+      .cl-name { font-size:1.5rem; }
+      .tr-grid { grid-template-columns:1fr 1fr; gap:8px; }
+      .tr-info { padding:20px 14px; }
+      .tr-nm { font-size:1.4rem; }
       .ts-grid { grid-template-columns:1fr; }
+      .ts-card { padding:28px 20px; }
+      .cta-band { padding:56px 16px; }
+      .cta-title { font-size:clamp(2.5rem,10vw,4rem); }
+      .cta-sub { margin:16px auto 28px; font-size:.9rem; padding:0 8px; }
+      .cta-band .btn-solid,.cta-band .btn-line { min-height:48px; width:100%; max-width:280px; display:inline-flex; align-items:center; justify-content:center; }
       .pr-grid { grid-template-columns:1fr; max-width:400px; margin:0 auto; }
-      .ct-grid { grid-template-columns:1fr; gap:48px; }
-      .gl-grid { grid-template-columns:1fr 1fr; }
+      .pr-hdr { margin-bottom:36px; }
+      .p-card { padding:36px 24px; }
+      .p-amt { font-size:4rem; }
+      .p-amt sup { font-size:1.5rem; }
+      .p-feat { font-size:.82rem; }
+      .ct-grid { grid-template-columns:1fr; gap:40px; }
+      .ct-h2 { font-size:clamp(2rem,8vw,3.5rem); margin-bottom:16px; }
+      .ct-p { font-size:.88rem; margin-bottom:32px; }
+      .ct-dt { margin-bottom:16px; }
+      .ct-map { height:160px; margin-top:24px; }
+      .cf-i,.cf-t { padding:12px 14px; min-height:44px; }
+      .gl-grid { grid-template-columns:1fr 1fr; gap:3px; margin-top:36px; }
       .gi-a { grid-column:span 2; }
       .gi-b,.gi-c,.gi-d,.gi-e { grid-column:span 1; }
-      footer { padding:48px 20px 32px; }
-      .ft-top { grid-template-columns:1fr; gap:36px; }
+      .gi-word { font-size:4rem; }
+      footer { padding:40px 16px 28px; }
+      .ft-top { grid-template-columns:1fr; gap:32px; padding-bottom:36px; }
+      .ft-logo { font-size:2.6rem; }
+      .ft-bot { flex-direction:column; text-align:center; padding-top:20px; gap:8px; }
+      .ch-win { width:100%; max-width:330px; right:16px; bottom:88px; left:16px; margin:0 auto; }
+      .fab { bottom:20px; right:20px; width:48px; height:48px; }
+    }
+    @media(max-width:480px){
+      .hero-title { font-size:clamp(2.4rem,11vw,3.5rem); }
+      .hero { padding:0 12px 40px; }
+      .sec { padding:44px 12px; }
+      .cl-grid { grid-template-columns:1fr; }
+      .tr-grid { grid-template-columns:1fr; }
+      .ab-vis { min-height:220px; }
+      .ab-big { font-size:10rem; }
+      .mq-item { font-size:.95rem; padding:0 18px; }
+      .p-amt { font-size:3.2rem; }
+      .cta-band .btn-solid,.cta-band .btn-line { max-width:100%; }
     }
   `}} />
 );
@@ -473,24 +543,46 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 
 function Nav() {
   const [solid, setSolid] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const fn = () => setSolid(window.scrollY > 60);
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
+  useEffect(() => {
+    if (menuOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
   const linkId = (l: string) => l.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  const navLinks = ["Clases", "Trainers", "Galería", "Membresías", "Contacto"];
   return (
-    <nav className={solid ? "solid" : ""}>
-      <a href="#top" className="n-logo">FF<em>O</em></a>
-      <ul className="n-links">
-        {["Clases", "Trainers", "Galería", "Membresías", "Contacto"].map((l) => (
-          <li key={l}>
-            <a href={`#${linkId(l)}`}>{l}</a>
-          </li>
-        ))}
-      </ul>
-      <a href="#membresias" className="n-btn">Únete</a>
-    </nav>
+    <>
+      <nav className={solid ? "solid" : ""}>
+        <a href="#top" className="n-logo" onClick={() => setMenuOpen(false)}>FF<em>O</em></a>
+        <ul className="n-links">
+          {navLinks.map((l) => (
+            <li key={l}>
+              <a href={`#${linkId(l)}`}>{l}</a>
+            </li>
+          ))}
+        </ul>
+        <button type="button" className="n-toggle" onClick={() => setMenuOpen((o) => !o)} aria-label="Menú" aria-expanded={menuOpen}>
+          <span /><span /><span />
+        </button>
+        <a href="#membresias" className="n-btn">Únete</a>
+      </nav>
+      <div className={`n-mob ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen}>
+        <ul className="n-mob-links">
+          {navLinks.map((l) => (
+            <li key={l}>
+              <a href={`#${linkId(l)}`} onClick={() => setMenuOpen(false)}>{l}</a>
+            </li>
+          ))}
+        </ul>
+        <a href="#membresias" className="n-btn" onClick={() => setMenuOpen(false)}>Únete</a>
+      </div>
+    </>
   );
 }
 
