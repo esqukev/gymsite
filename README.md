@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FFO GYM — Sitio web
 
-## Getting Started
+Sitio web del gimnasio **FFO GYM** (multi-página). Incluye: Inicio, Instalaciones, Equipo, Modalidades, Intizom (filial funcional) y Contacto/Reservas.
 
-First, run the development server:
+## Tecnologías
+
+- **Next.js 16** (App Router)
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS 4**
+
+## Requisitos
+
+- Node.js 18+
+- npm o pnpm
+
+## Instalación
 
 ```bash
+# Clonar el repositorio
+git clone https://github.com/esqukev/gymsite.git
+cd gymsite
+
+# Instalar dependencias
+npm install
+
+# Modo desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Comando        | Descripción              |
+|----------------|--------------------------|
+| `npm run dev`  | Servidor de desarrollo   |
+| `npm run build`| Build de producción      |
+| `npm run start`| Servidor de producción   |
+| `npm run lint` | Ejecutar ESLint          |
 
-## Learn More
+## Estructura del proyecto
 
-To learn more about Next.js, take a look at the following resources:
+```
+gymapp/
+├── app/
+│   ├── page.tsx              # Inicio
+│   ├── instalaciones/        # Página Instalaciones
+│   ├── equipo/               # Página Equipo
+│   ├── modalidades/          # Página Modalidades
+│   ├── intizom/              # Página Intizom
+│   └── contacto/             # Página Contacto + Reservas
+├── components/
+│   ├── Navbar.tsx
+│   ├── Hero.tsx
+│   ├── Facilities.tsx
+│   ├── Team.tsx
+│   ├── Modalities.tsx
+│   ├── Intizom.tsx
+│   ├── Booking.tsx
+│   ├── Contact.tsx
+│   └── Footer.tsx
+├── mock.js                   # Datos (gymData, facilities, staff, etc.)
+└── public/
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Subir a GitHub
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Si el proyecto aún no está vinculado al remoto:
 
-## Deploy on Vercel
+```bash
+git init
+git add .
+git commit -m "Initial commit: FFO GYM website"
+git branch -M main
+git remote add origin https://github.com/esqukev/gymsite.git
+git push -u origin main
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Si ya tienes un repo local y solo quieres apuntar a este remoto:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+git remote add origin https://github.com/esqukev/gymsite.git
+git branch -M main
+git push -u origin main
+```
+
+## Licencia
+
+Proyecto privado — FFO GYM.
