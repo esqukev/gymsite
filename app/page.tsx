@@ -107,8 +107,8 @@ const Styles = () => (
 
     .hero {
       min-height:100vh; position:relative; overflow:hidden;
-      display:flex; flex-direction:column; justify-content:flex-end;
-      padding:0 40px 80px;
+      display:flex; flex-direction:column; justify-content:center;
+      padding:80px 40px 120px;
     }
     .hero-grid {
       position:absolute; inset:0;
