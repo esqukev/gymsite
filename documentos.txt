@@ -1,0 +1,22 @@
+Colores.
+
+Verde: #4FBC01
+Negro/Gris: #121212
+Amarillo: #D3E639
+Blanco: #FEFEFE
+
+--------------------
+
+
+Un Hero, Nosotros, Servicios, Contacto, Galleria
+
+Los colores son estos: Verde: #4FBC01
+Negro/Gris: #121212
+Amarillo: #D3E639
+Blanco: #FEFEFE
+
+No necesito integración o funcionalidad, talvez un chatbot de AI que acepte forms. Un formulario de contacto, integracion con redes sociales.
+
+Lo de logo e imagenes usamos generativos, ya que por el momento es un sitio generico para intentar venderlo.
+
+Me gustaría que destaque todo, el equipo, la comunidad y ambiente, la forma en la que se trabaja (semi personalizado) y los entrenadores

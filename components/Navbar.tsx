@@ -1,67 +1,57 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+const links = [
+  { href: "/", label: "Inicio" },
+  { href: "/servicios", label: "Clases" },
+  { href: "/entrenadores", label: "Entrenadores" },
+  { href: "/contacto", label: "Contacto" },
+];
 
 export default function Navbar() {
   const pathname = usePathname();
-
-  const isActive = (path: string) => {
-    return pathname === path;
-  };
+  const { scrollY } = useScroll();
+  const navBg = useTransform(scrollY, [0, 80], ["rgba(18,18,18,0)", "rgba(18,18,18,0.95)"]);
+  const navBorder = useTransform(scrollY, [0, 80], ["rgba(254,254,254,0)", "rgba(254,254,254,0.08)"]);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="text-3xl font-bold text-gray-900">
-          FFO <span className="text-green-600">GYM</span>
-        </Link>
-        <div className="hidden md:flex items-center gap-8">
-          <Link 
-            href="/" 
-            className={`transition-colors font-medium ${isActive('/') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'}`}
-          >
-            Inicio
-          </Link>
-          <Link 
-            href="/instalaciones" 
-            className={`transition-colors font-medium ${isActive('/instalaciones') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'}`}
-          >
-            Instalaciones
-          </Link>
-          <Link 
-            href="/equipo" 
-            className={`transition-colors font-medium ${isActive('/equipo') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'}`}
-          >
-            Equipo
-          </Link>
-          <Link 
-            href="/modalidades" 
-            className={`transition-colors font-medium ${isActive('/modalidades') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'}`}
-          >
-            Modalidades
-          </Link>
-          <Link 
-            href="/intizom" 
-            className={`transition-colors font-medium ${isActive('/intizom') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'}`}
-          >
-            Intizom
-          </Link>
-          <Link 
-            href="/contacto" 
-            className={`transition-colors font-medium ${isActive('/contacto') ? 'text-green-600' : 'text-gray-700 hover:text-green-600'}`}
-          >
-            Contacto
-          </Link>
-        </div>
-        <Link 
-          href="/contacto" 
-          className="px-6 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl"
+    <motion.header
+      style={{
+        backgroundColor: navBg,
+        borderBottomColor: navBorder,
+      }}
+      className="fixed top-0 left-0 right-0 z-50 border-b border-transparent py-4 px-6 transition-colors"
+    >
+      <div className="max-w-6xl mx-auto flex justify-between items-center">
+        <Link
+          href="/"
+          className="text-2xl font-black text-[#FEFEFE] tracking-tight hover:text-[#4FBC01] transition-colors"
         >
-          Reservar Cita
+          FFO <span className="text-[#4FBC01]">GYM</span>
+        </Link>
+        <nav className="hidden md:flex items-center gap-10">
+          {links.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`text-sm font-semibold uppercase tracking-wider transition-colors ${
+                pathname === href ? "text-[#4FBC01]" : "text-[#FEFEFE]/90 hover:text-[#4FBC01]"
+              }`}
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+        <Link
+          href="/contacto"
+          className="text-sm font-bold uppercase tracking-wider px-6 py-3 rounded-full bg-[#4FBC01] text-[#121212] hover:bg-[#6dd118] transition-all hover:scale-105"
+        >
+          Únete
         </Link>
       </div>
-    </nav>
+    </motion.header>
   );
 }
-
